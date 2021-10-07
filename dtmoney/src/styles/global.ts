@@ -4,11 +4,13 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
     //defining CSS variables
     :root {
-        --background: #F0F2F5;
+        --background: #f0f2f5;
         --red: #E52E4D;
+        --green: #33CC95;
         --blue: #5429CC;
         --blue-light: #6933FF;
-        --text-title: #363F5F;
+        --text-body: #969CB2;
+        --text-title: #363F5F; 
         --shape: #FFFFFF;
     }
     
@@ -30,7 +32,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        background: var(---background);
+        background: var(--background);
         //dating fonts
         -webkit-font-smoothing: antialiased;
     }
@@ -56,3 +58,4 @@ export const GlobalStyle = createGlobalStyle`
     }
 
 `
+
