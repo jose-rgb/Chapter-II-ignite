@@ -2,9 +2,11 @@ import styled from "styled-components";
 
 export const Container = styled.header`
 
-    background: var(--blue);
+    background: ${props => props.theme.colors.blue};
+
 
 `
+
 export const Content = styled.div`
     max-width: 1120px;
     margin: 0 auto;
@@ -14,10 +16,18 @@ export const Content = styled.div`
     align-items: center;
     justify-content: space-between;
 
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
     button {
+        margin-left: 1rem;
         font-size: 1rem;
         color: #FFF;
-        background: var(--blue-light);
+        background: ${props => props.theme.colors.bluelight};
         border: 0;
         padding: 0 2rem;
         border-radius: 0.25rem;

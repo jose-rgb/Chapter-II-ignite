@@ -3,9 +3,10 @@ import { darken, transparentize } from "polished";
 
 export const Container = styled.form`
     h2 {
-        color: var(--text-title);
+        color: ${props => props.theme.colors.texttitle};
         font-size: 1.5rem;
         margin-bottom: 2rem;
+        font-family: 'Poppins';
     }
 
     input {
@@ -21,7 +22,7 @@ export const Container = styled.form`
         font-size: 1rem;
 
         &::placeholder {
-            color: var(--text-body);
+            color: ${props => props.theme.colors.textbody};
         }
 
         & + input {
@@ -33,7 +34,7 @@ export const Container = styled.form`
         width: 100%;
         padding: 0 1.5rem;
         height: 4rem;
-        background: var(--green);
+        background: ${props => props.theme.colors.green};
         color: #FFF;
         border-radius: 0.25rem;
         border: 0;
@@ -72,7 +73,7 @@ const colors = {
 }
 
 export const ButtonType = styled.button<ButtonTypeProps >`
-      height: 4rem;
+    height: 4rem;
     border: 1px solid #d7d7d7;
     border-radius: 0.25rem;
 
@@ -100,7 +101,7 @@ export const ButtonType = styled.button<ButtonTypeProps >`
         display: inline-block;
         margin-left: 1rem;
         font-size: 1rem;
-        color: var(--text-title);
+        color: ${props => props.theme.colors.texttitle};
     }
     
 `;

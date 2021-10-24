@@ -6,12 +6,13 @@ export const Container = styled.div`
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-top: -9rem;
+    font-family: 'Poppins';
 
     div {
-        background: var(--shape);
+        background: ${props => props.theme.colors.shape};
         padding: 1.5rem 2rem;
         border-radius: 0.25rem;
-        color: var(--text-title);
+        color: ${props => props.theme.colors.texttitle};
 
         header {
             display: flex;
@@ -28,7 +29,7 @@ export const Container = styled.div`
         }
     
         &.grenn-background {
-            background: var(--green);
+            background: ${props => props.theme.colors.green};
             color: #FFF;
         }
         
