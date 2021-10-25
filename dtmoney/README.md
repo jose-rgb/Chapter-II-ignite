@@ -10,10 +10,10 @@
 * Create a hook.
 ## And as a challenge, I decided to implement the dark mode in the application.
 ### Light
-<img src="" />
+<img src="https://github.com/jose-rgb/Chapter-II-ignite/blob/main/dtmoney/.github/light.png" />
 
 ### dark
-<img src="" />
+<img src="https://github.com/jose-rgb/Chapter-II-ignite/blob/main/dtmoney/.github/dark.png" />
 
 ## 🎥 Vídeo Demonstrativo
 <a href="https://youtu.be/j3vNFWeqYE8">
