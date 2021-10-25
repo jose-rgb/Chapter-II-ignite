@@ -1,25 +1,13 @@
-import { useEffect, useState } from "react";
-import { api } from "../../services/api";
+import { useTransactions } from "../../hooks/useTransactions";
 import { Container } from "./style";
 
-interface Transaction {
-    id: number;
-    title: string;
-    amount: number;
-    type: string;
-    category: string;
-    createdAt: string;
-}
 
 // yarn add axios@0.21.0
 export function TransactionsTable() {
-    //array de transactions vazio
-    const [transactions, setTransactions] = useState<Transaction[]>([]);
+    //obter valor do TransactionsContext
+    const {transactions} = useTransactions();
    
-    useEffect(()=>{
-        api.get('transactions').then(response => setTransactions(response.data.transactions))
-    }, []);   
-      
+   
     return (
         <Container>
             <table>

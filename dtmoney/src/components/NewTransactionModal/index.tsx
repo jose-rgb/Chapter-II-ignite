@@ -1,10 +1,11 @@
 import { api } from '../../services/api';
-import { FormEvent, useState } from 'react';
+import  { Container,  TransactionButtonsContainer,  ButtonType } from './style';
+import { FormEvent, useState, useContext } from 'react';
 import Modal from 'react-modal';
 import incomeImg from '../../assets/income.svg';
 import outcomeImg from '../../assets/outcome.svg';
 import closeImg  from '../../assets/close.svg';
-import  { Container,  TransactionButtonsContainer,  ButtonType } from './style';
+import { useTransactions } from '../../hooks/useTransactions';
 
 
 
@@ -15,31 +16,41 @@ interface NewTransactionModalProps {
 }
 
 export function NewTransactionModal({isOpen, onRequestClose}: NewTransactionModalProps) {
+    //obter valor do TransactionsContext
+    const {createTransaction} = useTransactions()
+
     //inputs.value
     const [title, setTitle] = useState('');
-    const [value, setValue] = useState(0);
+    const [amount, setAmount] = useState(0);
     const [category, setCategory] = useState('');
     
     //tipo da transaction
     const [type, setType] = useState('deposit');
 
     //function para o submit do form
-    function handleCreateNewTransaction(event: FormEvent) {
+    async function handleCreateNewTransaction(event: FormEvent) {
         /*
         prevenir o funcionamento padrao do form
         pois toda vez q um form e enviado um reload acontece
          */
         event.preventDefault();
 
-        //salvar dados da transaction na api
-        const data = {
+        await createTransaction({
             title,
-            value,
+            amount,
             category,
             type,
-        };
+        })
 
-        api.post('/transactions', data)
+        //setar os valores dos inputs
+        setTitle('');
+        setAmount(0);
+        setCategory('');
+        setType('deposit');
+
+        //fechar o modal
+        onRequestClose();
+        
     }
 
     return (
@@ -66,9 +77,9 @@ export function NewTransactionModal({isOpen, onRequestClose}: NewTransactionModa
                 <input 
                     type="number" 
                     placeholder="Valor"
-                    value={value}  
+                    value={amount}  
                     //valor q esta no input
-                    onChange={event => setValue(Number(event.target.value))}
+                    onChange={event => setAmount(Number(event.target.value))}
                 />
 
                 < TransactionButtonsContainer>
@@ -88,8 +99,8 @@ export function NewTransactionModal({isOpen, onRequestClose}: NewTransactionModa
                     <ButtonType
                         type="button"
                         //seta o type da operação para retirada
-                        onClick={() => { setType('withdraw') }}
-                        isActive={type === 'withdraw'}
+                        onClick={() => {setType('withdrawal')}}
+                        isActive={type === 'withdrawal'}  
                         activeColor = "red"
                     >
                         <img src={outcomeImg} alt="-" />

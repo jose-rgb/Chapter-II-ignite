@@ -33,7 +33,7 @@ export const Container = styled.div`
             &.deposit {
                 color: ${props => props.theme.colors.green};
             }
-
+            
             &.withdrawal{
                 color: ${props => props.theme.colors.red};
             }

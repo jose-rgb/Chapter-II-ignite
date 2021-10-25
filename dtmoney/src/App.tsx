@@ -8,6 +8,7 @@ import { ThemeProvider, DefaultTheme } from 'styled-components';
 import light from './styles/themes/light';
 import dark from './styles/themes/dark'
 import {usePersistedState} from './styles/themes/usePersistedState'
+import { TransactionsProvider } from "./hooks/useTransactions";
 
 //definindo qual e o root da aplicação para a lib react-modal
 Modal.setAppElement('#root');
@@ -37,12 +38,12 @@ export function App() {
 
   return (
     <ThemeProvider theme={theme}>
-        <>
-        <Header onOpenNewTransactionModal ={handleOpenNewTransactionModal} toggleTheme={toggleTheme}/>
-        <Dashboard />
-        <NewTransactionModal isOpen={isNewTransactionModalOpen} onRequestClose={handleCloseNewTransactionModal} />
-        <GlobalStyle />
-        </>
+        <TransactionsProvider>
+          <Header onOpenNewTransactionModal ={handleOpenNewTransactionModal} toggleTheme={toggleTheme}/>
+          <Dashboard />
+          <NewTransactionModal isOpen={isNewTransactionModalOpen} onRequestClose={handleCloseNewTransactionModal} />
+          <GlobalStyle />
+        </TransactionsProvider>
     </ThemeProvider>
   );
 }
