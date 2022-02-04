@@ -26,7 +26,7 @@
 
 ### ⚙️ cloning this repository 🛠
 ```
-https://github.com/jose-rgb/Chapter-II-ignite.git
+git clone https://github.com/jose-rgb/Chapter-II-ignite.git
 ```
 
 ### 📁 change directory
