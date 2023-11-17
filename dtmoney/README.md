@@ -14,11 +14,6 @@
 
 ### dark
 <img src="https://github.com/jose-rgb/Chapter-II-ignite/blob/main/dtmoney/.github/dark.png" />
-
-## 🎥 Vídeo Demonstrativo
-<a href="https://youtu.be/j3vNFWeqYE8">
-    <img align="center" src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"  height="40" width="40" />
-<a>
     
 <br></br>
 
